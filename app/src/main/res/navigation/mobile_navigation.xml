@@ -7,5 +7,54 @@
     <fragment
         android:id="@+id/home_dest"
         android:name="org.wfp.serviceprovision.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="Services" >
+        <action
+            android:id="@+id/choose_storage_category"
+            app:destination="@id/storageCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/storageCategoryFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/storageCategoryFragment"
+        android:name="org.wfp.serviceprovision.StorageCategoryFragment"
+        android:label="Storage Category" >
+        <action android:id="@+id/action_choose_storage_location"
+            app:destination="@id/storageLocationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/storageCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageLocationFragment"
+        android:name="org.wfp.serviceprovision.StorageLocationFragment"
+        android:label="Choose Storage Location" >
+        <action android:id="@+id/action_choose_storage_from_date"
+            app:destination="@id/storageFromDateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/storageLocationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageFromDateFragment"
+        android:name="org.wfp.serviceprovision.StorageFromDateFragment"
+        android:label="Store From" >
+        <action android:id="@+id/action_choose_storage_to_date"
+            app:destination="@id/storageToDateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/storageFromDateFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/storageToDateFragment"
+        android:name="org.wfp.serviceprovision.StorageToDateFragment"
+        android:label="Store To" />
 </navigation>

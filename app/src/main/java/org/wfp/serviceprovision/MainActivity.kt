@@ -9,8 +9,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
@@ -56,27 +58,13 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         setupNavigationMenu(navController)
 
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
         nav_view.setNavigationItemSelectedListener(this)
     }
 
 
 
-
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
-    }
-
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
+        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
