@@ -9,20 +9,20 @@
         android:layout_width="match_parent"
         android:id="@+id/service_item_header"
         android:layout_height="wrap_content"
-        android:paddingBottom="50dp"
+        android:paddingBottom="25dp"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:text="H"
-        android:textSize="64sp"/>
+        android:textSize="40sp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:id="@+id/service_item_desc"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@id/service_item_header"
-        android:paddingTop="50dp"
+        android:paddingTop="25dp"
         android:textColor="#ffffff"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textAlignment="center"
         android:text="IMProcurement" />
 

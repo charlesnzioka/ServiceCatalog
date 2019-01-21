@@ -34,7 +34,8 @@ class ServicesListAdapter(context: Context?, items: List<ServiceItem>,itemClickL
         holder?.serviceHeader.text= serviceItems[position].name[0].toString().toUpperCase()
         holder?.serviceDescription.text= serviceItems[position].name
         val color = Color.parseColor(colors[position])
-        holder.itemView.setBackgroundColor(color)
+        holder?.serviceHeader.setTextColor(color)
+        //holder.itemView.setBackgroundColor(color)
         holder.itemView.tag=serviceItems[position].id
         holder.itemView.setOnClickListener(this)
     }

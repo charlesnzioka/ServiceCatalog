@@ -22,6 +22,7 @@ class StorageLocationFragment:Fragment(),StorageLocationItemClickListener {
     init {
         locations= arrayListOf<String>("Addis Ababa","Gondar","Mek'ele","Adama","Hawassa","Bahir Dar",
                 "Dire Dawa" ,"Dessie","Jimma","Shashamane")
+        locations.sort()
     }
     override fun onCreateView(
             inflater: LayoutInflater,

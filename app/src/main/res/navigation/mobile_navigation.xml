@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/storageLocationFragment"
         android:name="org.wfp.serviceprovision.StorageLocationFragment"
-        android:label="Choose Storage Location" >
+        android:label="Storage Location" >
         <action android:id="@+id/action_choose_storage_from_date"
             app:destination="@id/storageFromDateFragment"
             app:enterAnim="@anim/slide_in_right"
