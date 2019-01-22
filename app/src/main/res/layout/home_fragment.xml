@@ -6,7 +6,7 @@
     android:id="@+id/homeLayout"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
-    tools:context="org.wfp.serviceprovision.HomeFragment">
+    tools:context="org.wfp.serviceprovision.ui.main.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/services_list"

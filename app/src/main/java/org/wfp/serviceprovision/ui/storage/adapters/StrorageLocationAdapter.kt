@@ -1,4 +1,4 @@
-package org.wfp.serviceprovision
+package org.wfp.serviceprovision.ui.storage.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.location_item.view.*
+import org.wfp.serviceprovision.R
+import org.wfp.serviceprovision.ui.storage.StorageLocationItemClickListener
 
 class StorageLocationAdapter(context: Context?, locations:List<String>, itemClickListener: StorageLocationItemClickListener) :RecyclerView.Adapter<StorageLocationViewHolder>(),View.OnClickListener{
 
     private val context: Context? =context
     private var locationItems: List<String> = locations
-    private val clickListener:StorageLocationItemClickListener=itemClickListener
+    private val clickListener: StorageLocationItemClickListener =itemClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StorageLocationViewHolder {
         return StorageLocationViewHolder(LayoutInflater.from(context).inflate(R.layout.location_item, parent, false))

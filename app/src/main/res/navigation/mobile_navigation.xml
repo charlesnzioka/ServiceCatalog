@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/home_dest"
-        android:name="org.wfp.serviceprovision.HomeFragment"
+        android:name="org.wfp.serviceprovision.ui.main.HomeFragment"
         android:label="Services" >
         <action
             android:id="@+id/choose_storage_category"
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/storageCategoryFragment"
-        android:name="org.wfp.serviceprovision.StorageCategoryFragment"
+        android:name="org.wfp.serviceprovision.ui.storage.StorageCategoryFragment"
         android:label="Storage Category" >
         <action android:id="@+id/action_choose_storage_location"
             app:destination="@id/storageLocationFragment"
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/storageLocationFragment"
-        android:name="org.wfp.serviceprovision.StorageLocationFragment"
+        android:name="org.wfp.serviceprovision.ui.storage.StorageLocationFragment"
         android:label="Storage Location" >
         <action android:id="@+id/action_choose_storage_from_date"
             app:destination="@id/storageFromDateFragment"
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/storageFromDateFragment"
-        android:name="org.wfp.serviceprovision.StorageFromDateFragment"
+        android:name="org.wfp.serviceprovision.ui.storage.StorageFromDateFragment"
         android:label="Store From" >
         <action android:id="@+id/action_choose_storage_to_date"
             app:destination="@id/storageToDateFragment"
@@ -55,6 +55,6 @@
     </fragment>
     <fragment
         android:id="@+id/storageToDateFragment"
-        android:name="org.wfp.serviceprovision.StorageToDateFragment"
+        android:name="org.wfp.serviceprovision.ui.storage.StorageToDateFragment"
         android:label="Store To" />
 </navigation>

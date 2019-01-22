@@ -1,4 +1,4 @@
-package org.wfp.serviceprovision
+package org.wfp.serviceprovision.ui.storage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import android.widget.CalendarView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.storage_to_date_fragment.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.wfp.serviceprovision.R
+import org.wfp.serviceprovision.ui.main.MainViewModel
 import java.util.*
 
 class StorageToDateFragment:Fragment(),CalendarView.OnDateChangeListener {
+    private val viewModel by sharedViewModel<MainViewModel>()
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,

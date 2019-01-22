@@ -1,14 +1,11 @@
-package org.wfp.serviceprovision
+package org.wfp.serviceprovision.ui.main
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,11 +15,14 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.wfp.serviceprovision.R
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
     private lateinit var appBarConfiguration : AppBarConfiguration
     private lateinit var navController:NavController
     private lateinit var drawerLayout:DrawerLayout
+    private val viewModel by viewModel<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

@@ -42,4 +42,18 @@ dependencies {
     implementation deps.navigation.runtime
     implementation deps.navigation.fragment
     implementation deps.navigation.navigation_ui_ktx
+
+
+    //Koin
+    implementation deps.koin.koin_android
+    implementation deps.koin.koin_android_viewmodel
+
+    //Networking
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.adapter_rxjava2
+
+    //RX
+    implementation deps.rxjava2
+    implementation deps.rx_android
 }

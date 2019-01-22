@@ -1,4 +1,4 @@
-package org.wfp.serviceprovision
+package org.wfp.serviceprovision.ui.storage
 
 import android.graphics.drawable.ClipDrawable.HORIZONTAL
 import android.os.Bundle
@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.storage_location_fragment.*
 import androidx.recyclerview.widget.DividerItemDecoration
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.wfp.serviceprovision.R
+import org.wfp.serviceprovision.ui.main.MainViewModel
+import org.wfp.serviceprovision.ui.storage.adapters.StorageLocationAdapter
 
 
-
-class StorageLocationFragment:Fragment(),StorageLocationItemClickListener {
-
-
+class StorageLocationFragment:Fragment(), StorageLocationItemClickListener {
+    private val viewModel by sharedViewModel<MainViewModel>()
     private var locations=ArrayList<String>()
 
     init {
@@ -39,7 +41,7 @@ class StorageLocationFragment:Fragment(),StorageLocationItemClickListener {
         storage_locations_list.layoutManager= LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
         val decoration = DividerItemDecoration(this.context, HORIZONTAL)
         storage_locations_list.addItemDecoration(decoration)
-        storage_locations_list.adapter=StorageLocationAdapter(this.context,locations,this)
+        storage_locations_list.adapter= StorageLocationAdapter(this.context, locations, this)
     }
 
 

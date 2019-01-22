@@ -1,4 +1,4 @@
-package org.wfp.serviceprovision
+package org.wfp.serviceprovision.ui.storage.adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.service_item.view.*
-import org.wfp.serviceprovision.org.wfp.serviceprovision.model.StorageCategory
+import org.wfp.serviceprovision.R
+import org.wfp.serviceprovision.model.StorageCategory
+import org.wfp.serviceprovision.model.StorageCategoryType
+import org.wfp.serviceprovision.ui.storage.StorageCategoryItemClickListener
 
 class StorageCategoryListAdapter(context: Context?, items: List<StorageCategory>, itemClickListener: StorageCategoryItemClickListener):RecyclerView.Adapter<CategoryViewHolder>(), View.OnClickListener {
 
@@ -15,7 +18,7 @@ class StorageCategoryListAdapter(context: Context?, items: List<StorageCategory>
     private var categoryItems: List<StorageCategory> = items
     private var context: Context? = context
     private val colors= arrayOf("#fd6925","#c5192d","#F7B825","#8AD220")
-    private val categoryItemClickListener:StorageCategoryItemClickListener=itemClickListener
+    private val categoryItemClickListener: StorageCategoryItemClickListener =itemClickListener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         return CategoryViewHolder(LayoutInflater.from(context).inflate(R.layout.service_item, parent, false))
     }
@@ -29,12 +32,12 @@ class StorageCategoryListAdapter(context: Context?, items: List<StorageCategory>
         holder?.categoryDescription.text= categoryItems[position].category
         val color = Color.parseColor(colors[position])
         holder.itemView.setBackgroundColor(color)
-        holder.itemView.tag=categoryItems[position].id
+        holder.itemView.tag=categoryItems[position].id.toString()
         holder.itemView.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-        categoryItemClickListener.onStorageItemClick(categoryItems[(v?.tag as Long).toInt()-1])
+        categoryItemClickListener.onStorageItemClick(categoryItems.find { i->i.id==StorageCategoryType.valueOf(v?.tag.toString() )}!!)
     }
 }
 
