@@ -15,12 +15,4 @@ val appModule = module {
     // Simple Presenter Factory
     //factory { MySimplePresenter(get()) }
 
-    single{
-        val httpClient = OkHttpClient.Builder()
-        val retrofit = Retrofit.Builder()
-                .baseUrl(Network.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(httpClient.build())
-                .build()
-    }
 }

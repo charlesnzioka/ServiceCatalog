@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     private lateinit var appBarConfiguration : AppBarConfiguration
     private lateinit var navController:NavController
     private lateinit var drawerLayout:DrawerLayout
-    private val viewModel by viewModel<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

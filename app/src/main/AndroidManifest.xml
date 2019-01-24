@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.wfp.serviceprovision">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,9 @@
             android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".ui.account.AccountActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

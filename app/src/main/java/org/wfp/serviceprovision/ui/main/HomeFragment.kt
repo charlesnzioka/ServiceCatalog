@@ -3,7 +3,9 @@ package org.wfp.serviceprovision.ui.main
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -22,6 +24,7 @@ class HomeFragment:Fragment(), HomeNavigation {
             savedInstanceState: Bundle?
     ): View? {
         //setHasOptionsMenu(true)
+        //(this.context as AppCompatActivity).supportActionBar?.hide()
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
@@ -30,10 +33,14 @@ class HomeFragment:Fragment(), HomeNavigation {
         super.onViewCreated(view, savedInstanceState)
 
         services_list.layoutManager= GridLayoutManager(this.context,2)
-        services_list.adapter= ServicesListAdapter(
+        viewModel.getAllServicesForCountry("KE")
+        viewModel.serviceEvent.observe(this, Observer { serviceEvent->
+
+        })
+        /*services_list.adapter= ServicesListAdapter(
                 this.context,
-                viewModel.getAllServicesForCountry("Ethiopia"), {item:ServiceItem->onServiceItemClick(item)}
-        )
+                viewModel.getAllServicesForCountry("KE"), {item:ServiceItem->onServiceItemClick(item)}
+        )*/
 
     }
 
