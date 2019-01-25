@@ -1,13 +1,12 @@
 package org.wfp.serviceprovision.repository.service
 
 import io.reactivex.Single
-import org.wfp.serviceprovision.model.ServiceModel
+import org.wfp.serviceprovision.repository.data.ServicesResult
+import org.wfp.serviceprovision.repository.prefs.AppPreferencesHelper
 
-class ServiceRepositoryImpl(private val servicesApiService: ServicesApiService) : ServiceRepository {
-    val serviceCache = arrayListOf<ServiceModel>()
-    override fun searchService(countryCode: String): Single<List<ServiceModel>> =servicesApiService.getServices(countryCode)
-            .doOnSuccess {
-                serviceCache.clear()
-                serviceCache.addAll(it)
-            }
+class ServiceRepositoryImpl(private val servicesApiService: ServicesApiService,private val appPreferencesHelper: AppPreferencesHelper) : ServiceRepository {
+    override fun searchService(countryCode: String): Single<ServicesResult> {
+
+        return servicesApiService.getServices("JWT "+appPreferencesHelper.getAccessToken()!!,countryCode)
+    }
 }

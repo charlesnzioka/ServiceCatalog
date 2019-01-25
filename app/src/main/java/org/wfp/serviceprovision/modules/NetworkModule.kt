@@ -5,6 +5,9 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import org.koin.dsl.module.module
 import org.wfp.serviceprovision.constants.Network
+import org.wfp.serviceprovision.repository.account.AccountApiService
+import org.wfp.serviceprovision.repository.account.AccountRepository
+import org.wfp.serviceprovision.repository.account.AccountRepositoryImpl
 import org.wfp.serviceprovision.repository.service.ServiceRepository
 import org.wfp.serviceprovision.repository.service.ServiceRepositoryImpl
 import org.wfp.serviceprovision.repository.service.ServicesApiService
@@ -19,7 +22,11 @@ val remoteDatasourceModule = module {
     // Fill property
     single { createWebService<ServicesApiService>(get(), Network.BASE_URL) }
 
-    single<ServiceRepository>{ ServiceRepositoryImpl(get()) }
+    single { createWebService<AccountApiService>(get(), Network.BASE_URL) }
+
+    single<ServiceRepository>{ ServiceRepositoryImpl(get(),get()) }
+
+    single<AccountRepository>{ AccountRepositoryImpl(get()) }
 }
 
 fun createOkHttpClient(): OkHttpClient {

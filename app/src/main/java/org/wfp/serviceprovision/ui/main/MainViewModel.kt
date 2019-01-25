@@ -3,6 +3,7 @@ package org.wfp.serviceprovision.ui.main
 import androidx.lifecycle.MutableLiveData
 import org.wfp.serviceprovision.model.ServiceItem
 import org.wfp.serviceprovision.model.StorageServiceRequest
+import org.wfp.serviceprovision.repository.prefs.AppPreferencesHelper
 import org.wfp.serviceprovision.repository.service.ServiceRepository
 import org.wfp.serviceprovision.ui.SingleLiveEvent
 import org.wfp.serviceprovision.ui.base.AbstractViewModel
@@ -29,8 +30,6 @@ class MainViewModel(val serviceRepo: ServiceRepository):AbstractViewModel() {
                     })
         }
 
-
-        //return serviceRepo.getAllServicesForCountry(country)
     }
 }
 data class ServiceUIModel(val items:List<ServiceItem>?= listOf())
