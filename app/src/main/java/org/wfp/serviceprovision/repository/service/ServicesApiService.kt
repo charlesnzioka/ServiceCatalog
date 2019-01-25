@@ -2,7 +2,6 @@ package org.wfp.serviceprovision.repository.service
 
 import io.reactivex.Single
 import org.wfp.serviceprovision.constants.ApiEndpoints
-import org.wfp.serviceprovision.repository.data.ServiceResult
 import org.wfp.serviceprovision.repository.data.ServicesResult
 import retrofit2.http.GET
 import retrofit2.http.Header

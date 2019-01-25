@@ -3,6 +3,7 @@ package org.wfp.serviceprovision.ui.main
 import androidx.lifecycle.MutableLiveData
 import org.wfp.serviceprovision.model.ServiceItem
 import org.wfp.serviceprovision.model.StorageServiceRequest
+import org.wfp.serviceprovision.repository.data.ServicesResult
 import org.wfp.serviceprovision.repository.prefs.AppPreferencesHelper
 import org.wfp.serviceprovision.repository.service.ServiceRepository
 import org.wfp.serviceprovision.ui.SingleLiveEvent
@@ -23,7 +24,7 @@ class MainViewModel(val serviceRepo: ServiceRepository):AbstractViewModel() {
 
             serviceRepo.searchService(country)
                     .subscribe({
-                        serviceEvent.postValue(ServiceEvent(isSuccess = true))
+                        serviceEvent.postValue(ServiceEvent(isSuccess = true,result = it))
                     },
                     {err->
                         serviceEvent.postValue(ServiceEvent(error = err))
@@ -33,4 +34,4 @@ class MainViewModel(val serviceRepo: ServiceRepository):AbstractViewModel() {
     }
 }
 data class ServiceUIModel(val items:List<ServiceItem>?= listOf())
-data class ServiceEvent(val isLoading: Boolean = false, val isSuccess: Boolean = false, val error: Throwable? = null)
+data class ServiceEvent(val isLoading: Boolean = false, val isSuccess: Boolean = false, val error: Throwable? = null,val result:ServicesResult?=null)

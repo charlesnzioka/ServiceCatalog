@@ -1,4 +1,4 @@
 package org.wfp.serviceprovision.repository.data
 
-class ServicesResult(val services:List<ServiceResult>) {
+class ServicesResult(val services:List<ServiceItemResult>) {
 }

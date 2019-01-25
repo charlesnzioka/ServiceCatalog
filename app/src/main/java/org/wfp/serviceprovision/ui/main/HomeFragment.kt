@@ -23,8 +23,6 @@ class HomeFragment:Fragment(), HomeNavigation {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        //setHasOptionsMenu(true)
-        //(this.context as AppCompatActivity).supportActionBar?.hide()
         return inflater.inflate(R.layout.home_fragment, container, false)
     }
 
@@ -32,10 +30,16 @@ class HomeFragment:Fragment(), HomeNavigation {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        services_list.layoutManager= GridLayoutManager(this.context,2)
-        viewModel.getAllServicesForCountry("KE")
+        //services_list.layoutManager= GridLayoutManager(this.context,2)
+        //Hard coded to ethiopia for the moment
+        viewModel.getAllServicesForCountry("ET")
         viewModel.serviceEvent.observe(this, Observer { serviceEvent->
-
+            if(!serviceEvent.isLoading && serviceEvent.error!=null){
+                Toast.makeText(this.activity, serviceEvent.error.message,Toast.LENGTH_LONG).show()
+            }
+            else if(!serviceEvent.isLoading && serviceEvent.result!=null && serviceEvent.isSuccess){
+                //load the service list to ui
+            }
         })
         /*services_list.adapter= ServicesListAdapter(
                 this.context,
