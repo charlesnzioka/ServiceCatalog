@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,40 +9,33 @@
     android:background="@color/colorPrimary"
     android:layout_weight="4"
     tools:context="org.wfp.serviceprovision.ui.main.HomeFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/storage_list"
+    <include
+        layout="@layout/storage_mini_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/im_coordination_list"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/storage_list"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/procurement_list"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/im_coordination_list"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/taransport_list"
+        android:id="@+id/storage_seg"
+        />
+    <include
+        layout="@layout/procurement_mini_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/procurement_list"
-        android:layout_weight="1">
+        android:id="@+id/procurement_seg"
+        android:layout_below="@+id/storage_seg"
+        />
+    <include
+        layout="@layout/im_coordination_mini_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/im_coord_seg"
+        android:layout_below="@+id/procurement_seg"
+        />
 
-    </androidx.recyclerview.widget.RecyclerView>
-
-</LinearLayout>
+    <include
+        layout="@layout/logistics_mini_layout"
+        android:layout_width="match_parent"
+        android:id="@+id/logistics_seg"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_coord_seg"
+        />
+    
+</RelativeLayout>

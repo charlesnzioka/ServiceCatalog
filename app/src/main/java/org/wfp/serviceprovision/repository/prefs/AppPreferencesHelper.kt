@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import org.wfp.serviceprovision.constants.AppPreferences
 
 class AppPreferencesHelper (context: Context) :PreferencesHelper{
+
+
     var mPrefs:SharedPreferences=context.getSharedPreferences(AppPreferences.APP_PREF_NAME,Context.MODE_PRIVATE)
 
     override fun getAccessToken(): String? {
@@ -17,6 +19,10 @@ class AppPreferencesHelper (context: Context) :PreferencesHelper{
 
     override fun setCurrentUserId(userId: String) {
         mPrefs.edit().putString(AppPreferences.PREF_KEY_CURRENT_USER_ID,userId).apply()
+    }
+    override fun deleteCurrentUser() {
+        mPrefs.edit().remove(AppPreferences.PREF_KEY_CURRENT_USER_ID).commit()
+        mPrefs.edit().remove(AppPreferences.PREF_KEY_ACCESS_TOKEN).commit()
     }
 
 }

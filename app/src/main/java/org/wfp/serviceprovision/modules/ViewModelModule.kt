@@ -10,6 +10,6 @@ import org.wfp.serviceprovision.ui.main.MainViewModel
 
 val viewModelModule = module {
 
-    viewModel {MainViewModel(get())}
+    viewModel {MainViewModel(get(),get(),get())}
     viewModel { LoginViewModel(get(),get()) }
 }

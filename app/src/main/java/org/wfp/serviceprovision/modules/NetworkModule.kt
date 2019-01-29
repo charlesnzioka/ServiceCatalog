@@ -26,7 +26,7 @@ val remoteDatasourceModule = module {
 
     single<ServiceRepository>{ ServiceRepositoryImpl(get(),get()) }
 
-    single<AccountRepository>{ AccountRepositoryImpl(get()) }
+    single<AccountRepository>{ AccountRepositoryImpl(get(),get()) }
 }
 
 fun createOkHttpClient(): OkHttpClient {

@@ -56,4 +56,7 @@ dependencies {
     //RX
     implementation deps.rxjava2
     implementation deps.rx_android
+
+    //JWT
+    implementation deps.jwt.jwtdecode
 }

@@ -51,6 +51,7 @@ versions.paging = "2.1.0-rc01"
 versions.navigation = "1.0.0-alpha09"
 versions.work = "1.0.0-beta01"
 versions.koin="1.0.2"
+versions.jwt="1.2.0"
 def deps = [:]
 
 def support = [:]
@@ -166,6 +167,10 @@ def koin=[:]
 koin.koin_android="org.koin:koin-android:$versions.koin"
 koin.koin_android_viewmodel="org.koin:koin-androidx-viewmodel:$versions.koin"
 deps.koin=koin
+
+def jwt=[:]
+jwt.jwtdecode="com.auth0.android:jwtdecode:$versions.jwt"
+deps.jwt=jwt
 
 ext.deps = deps
 

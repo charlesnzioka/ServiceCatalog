@@ -6,4 +6,6 @@ import org.wfp.serviceprovision.repository.data.LoginResult
 
 interface AccountRepository {
     fun login(loginModel:LoginModel): Single<LoginResult>
+
+    fun isUserTokenExpired():Boolean
 }
